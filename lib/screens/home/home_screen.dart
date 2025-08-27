@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppTheme.lightGrey,
       appBar: const CustomAppBar(
-        title: 'Student Dashboard',
+        title: 'Student Dashboard', 
         showBackButton: false,
       ),
       body: Obx(() => homeController.isLoading.value

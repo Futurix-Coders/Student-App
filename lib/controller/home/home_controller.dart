@@ -25,6 +25,16 @@ class HomeController extends GetxController {
       'subtitle': 'Study late with extended library hours',
       'image': 'assets/images/splash.png',
     },
+    {
+      'title': 'Sports Meet Registration',
+      'subtitle': 'Join the annual college sports competition',
+      'image': 'assets/images/splash.png',
+    },
+    {
+      'title': 'Tech Fest 2024',
+      'subtitle': 'Showcase your projects and win prizes',
+      'image': 'assets/images/splash.png',
+    },
   ].obs;
 
   // Quick actions data
