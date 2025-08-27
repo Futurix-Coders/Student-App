@@ -80,9 +80,9 @@ class PermissionController extends GetxController {
       
       if (status.isGranted) {
         notificationPermissionGranted.value = true;
-        // Navigate back to login after permissions
+        // Navigate to home after permissions
         await Future.delayed(const Duration(seconds: 1));
-        Get.offAllNamed('/login');
+        Get.offAllNamed('/home');
       } else if (status.isDenied) {
         Get.snackbar(
           'Permission Denied',
@@ -123,7 +123,7 @@ class PermissionController extends GetxController {
 
   // Skip notification permission (for testing)
   void skipNotificationPermission() {
-    Get.offAllNamed('/login');
+    Get.offAllNamed('/home');
   }
 
   // Check if all permissions are granted
