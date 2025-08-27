@@ -43,6 +43,12 @@ dependencies:
   
   # Permission handling
   permission_handler: ^11.3.0
+  
+  # Local storage
+  shared_preferences: ^2.2.2
+  
+  # Image picker
+  image_picker: ^1.0.7
 
 dev_dependencies:
   flutter_test:

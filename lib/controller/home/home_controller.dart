@@ -1,4 +1,8 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+import '../../models/attendance_models.dart';
+import 'package:flutter/material.dart';
 
 class HomeController extends GetxController {
   final currentIndex = 0.obs;
@@ -7,6 +11,11 @@ class HomeController extends GetxController {
   final userName = 'Student'.obs;
   final userDepartment = 'BCA'.obs;
   final userSemester = '3rd'.obs;
+
+  // Attendance status
+  final attendanceStatus = AttendanceStatus().obs;
+  final isCheckingIn = false.obs;
+  final isCheckingOut = false.obs;
 
   // Carousel data
   final List<Map<String, String>> carouselItems = [
@@ -94,6 +103,8 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     loadUserData();
+    loadAttendanceStatus();
+    _checkDailyReset();
   }
 
   void loadUserData() {
@@ -104,8 +115,78 @@ class HomeController extends GetxController {
     });
   }
 
+  void loadAttendanceStatus() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final statusJson = prefs.getString('attendance_status');
+      
+      if (statusJson != null) {
+        // Parse the JSON string back to Map
+        final Map<String, dynamic> statusMap = json.decode(statusJson);
+        final status = AttendanceStatus.fromJson(statusMap);
+        attendanceStatus.value = status;
+      }
+    } catch (e) {
+      print('Error loading attendance status: $e');
+      // If there's an error, start with fresh status
+      attendanceStatus.value = AttendanceStatus();
+    }
+  }
+
+  void _saveAttendanceStatus() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final jsonString = json.encode(attendanceStatus.value.toJson());
+      await prefs.setString('attendance_status', jsonString);
+    } catch (e) {
+      print('Error saving attendance status: $e');
+    }
+  }
+
+  void _checkDailyReset() {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final resetTime = DateTime(now.year, now.month, now.day, 9, 0); // 9 AM
+
+    // Check if it's past 9 AM and we need to reset
+    if (now.isAfter(resetTime)) {
+      final lastResetDate = attendanceStatus.value.lastCheckOutTime;
+      if (lastResetDate == null || 
+          !_isSameDay(lastResetDate, today)) {
+        _resetAttendanceStatus();
+      }
+    }
+  }
+
+  bool _isSameDay(DateTime date1, DateTime date2) {
+    return date1.year == date2.year && 
+           date1.month == date2.month && 
+           date1.day == date2.day;
+  }
+
+  void _resetAttendanceStatus() {
+    attendanceStatus.value = AttendanceStatus();
+    _saveAttendanceStatus();
+  }
+
   void changeIndex(int index) {
     currentIndex.value = index;
+    
+    // Handle navigation based on selected index
+    switch (index) {
+      case 0: // Home
+        // Already on home screen
+        break;
+      case 1: // Assignments
+        Get.snackbar('Assignments', 'Opening assignments screen...');
+        break;
+      case 2: // Routine
+        Get.snackbar('Routine', 'Opening routine screen...');
+        break;
+      case 3: // Account
+        Get.toNamed('/account');
+        break;
+    }
   }
 
   void onCarouselPageChanged(int page) {
@@ -138,11 +219,160 @@ class HomeController extends GetxController {
     }
   }
 
-  void checkIn() {
-    Get.snackbar('Success', 'Check-in successful!');
+  void checkIn() async {
+    if (attendanceStatus.value.isDisabled) {
+      Get.snackbar(
+        'Attendance Disabled', 
+        'Check-in is disabled for today. It will reset tomorrow at 9 AM.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    if (attendanceStatus.value.isCheckedIn) {
+      Get.snackbar(
+        'Already Checked In', 
+        'You have already checked in today.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    isCheckingIn.value = true;
+    
+    try {
+      // Simulate API call
+      await Future.delayed(const Duration(seconds: 1));
+      
+      final now = DateTime.now();
+      attendanceStatus.value = attendanceStatus.value.copyWith(
+        isCheckedIn: true,
+        lastCheckInTime: now,
+      );
+      
+      _saveAttendanceStatus();
+      
+      Get.snackbar(
+        'Check-in Successful!', 
+        'You have been checked in at ${_formatTime(now)}',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color(0xFF4CAF50),
+        colorText: Colors.white,
+      );
+    } catch (e) {
+      Get.snackbar(
+        'Error', 
+        'Failed to check in. Please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color(0xFFD32F2F),
+        colorText: Colors.white,
+      );
+    } finally {
+      isCheckingIn.value = false;
+    }
   }
 
-  void checkOut() {
-    Get.snackbar('Success', 'Check-out successful!');
+  void checkOut() async {
+    if (!attendanceStatus.value.isCheckedIn) {
+      Get.snackbar(
+        'Not Checked In', 
+        'You need to check in first before checking out.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    if (attendanceStatus.value.isCheckedOut) {
+      Get.snackbar(
+        'Already Checked Out', 
+        'You have already checked out today.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    // Show confirmation dialog
+    final result = await Get.dialog<bool>(
+      AlertDialog(
+        title: const Text('Confirm Check-out'),
+        content: const Text(
+          'Did you attend all your classes today? Your attendance will not be recorded if you missed any classes.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: false),
+            child: const Text('No, I missed some classes'),
+          ),
+          ElevatedButton(
+            onPressed: () => Get.back(result: true),
+            child: const Text('Yes, I attended all classes'),
+          ),
+        ],
+      ),
+    );
+
+    if (result == null) return; // User cancelled
+
+    isCheckingOut.value = true;
+    
+    try {
+      // Simulate API call
+      await Future.delayed(const Duration(seconds: 1));
+      
+      final now = DateTime.now();
+      attendanceStatus.value = attendanceStatus.value.copyWith(
+        isCheckedOut: true,
+        lastCheckOutTime: now,
+        isDisabled: true, // Disable check-in for the rest of the day
+      );
+      
+      _saveAttendanceStatus();
+      
+      final message = result 
+          ? 'Check-out successful! Your attendance has been recorded.'
+          : 'Check-out successful! Note: Your attendance may not be recorded due to missed classes.';
+      
+      Get.snackbar(
+        'Check-out Successful!', 
+        message,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color(0xFF4CAF50),
+        colorText: Colors.white,
+        duration: const Duration(seconds: 4),
+      );
+    } catch (e) {
+      Get.snackbar(
+        'Error', 
+        'Failed to check out. Please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color(0xFFD32F2F),
+        colorText: Colors.white,
+      );
+    } finally {
+      isCheckingOut.value = false;
+    }
+  }
+
+  String _formatTime(DateTime time) {
+    return '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}';
+  }
+
+  // Getter for attendance button state
+  bool get canCheckIn => !attendanceStatus.value.isDisabled && 
+                        !attendanceStatus.value.isCheckedIn;
+
+  bool get canCheckOut => attendanceStatus.value.isCheckedIn && 
+                         !attendanceStatus.value.isCheckedOut;
+
+  String get attendanceStatusText {
+    if (attendanceStatus.value.isDisabled) {
+      return 'Attendance disabled for today';
+    } else if (attendanceStatus.value.isCheckedOut) {
+      return 'Checked out at ${_formatTime(attendanceStatus.value.lastCheckOutTime!)}';
+    } else if (attendanceStatus.value.isCheckedIn) {
+      return 'Checked in at ${_formatTime(attendanceStatus.value.lastCheckInTime!)}';
+    } else {
+      return 'Not checked in today';
+    }
   }
 }

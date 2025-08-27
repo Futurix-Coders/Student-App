@@ -5,6 +5,7 @@ import '../screens/auth/signup_screen.dart';
 import '../screens/permission/location_permission_screen.dart';
 import '../screens/permission/notification_permission_screen.dart';
 import '../screens/home/home_screen.dart';
+import '../screens/account/account_screen.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
@@ -13,6 +14,7 @@ class AppRoutes {
   static const String locationPermission = '/location-permission';
   static const String notificationPermission = '/notification-permission';
   static const String home = '/home';
+  static const String account = '/account';
 
   static final routes = [
     GetPage(
@@ -43,6 +45,11 @@ class AppRoutes {
     GetPage(
       name: home,
       page: () => const HomeScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: account,
+      page: () => const AccountScreen(),
       transition: Transition.fadeIn,
     ),
   ];

@@ -196,37 +196,86 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Attendance',
-            style: AppTheme.heading3.copyWith(
-              color: AppTheme.primaryBlue,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Attendance',
+                style: AppTheme.heading3.copyWith(
+                  color: AppTheme.primaryBlue,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: AppTheme.primaryBlue.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  controller.attendanceStatusText,
+                  style: AppTheme.bodySmall.copyWith(
+                    color: AppTheme.primaryBlue,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 16),
           Row(
             children: [
               Expanded(
-                child: ElevatedButton.icon(
-                  onPressed: controller.checkIn,
-                  icon: const Icon(Icons.login, color: AppTheme.white),
-                  label: const Text('Check In'),
+                child: Obx(() => ElevatedButton.icon(
+                  onPressed: controller.canCheckIn && !controller.isCheckingIn.value
+                      ? controller.checkIn
+                      : null,
+                  icon: controller.isCheckingIn.value
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(AppTheme.white),
+                          ),
+                        )
+                      : const Icon(Icons.login, color: AppTheme.white),
+                  label: Text(
+                    controller.isCheckingIn.value ? 'Checking In...' : 'Check In',
+                  ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.successGreen,
+                    backgroundColor: controller.canCheckIn 
+                        ? AppTheme.successGreen 
+                        : AppTheme.mediumGrey,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                ),
+                )),
               ),
               const SizedBox(width: 16),
               Expanded(
-                child: ElevatedButton.icon(
-                  onPressed: controller.checkOut,
-                  icon: const Icon(Icons.logout, color: AppTheme.white),
-                  label: const Text('Check Out'),
+                child: Obx(() => ElevatedButton.icon(
+                  onPressed: controller.canCheckOut && !controller.isCheckingOut.value
+                      ? controller.checkOut
+                      : null,
+                  icon: controller.isCheckingOut.value
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(AppTheme.white),
+                          ),
+                        )
+                      : const Icon(Icons.logout, color: AppTheme.white),
+                  label: Text(
+                    controller.isCheckingOut.value ? 'Checking Out...' : 'Check Out',
+                  ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.errorRed,
+                    backgroundColor: controller.canCheckOut 
+                        ? AppTheme.errorRed 
+                        : AppTheme.mediumGrey,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                ),
+                )),
               ),
             ],
           ),
