@@ -4,7 +4,7 @@ A modern Flutter student dashboard application for managing classroom, assignmen
 
 ## Team Members
 - Rajdeep Dey
-- Srijani Ghosh
+- Srijani Roy
 - Raj Dutta
 - Abantika Mondal
 
