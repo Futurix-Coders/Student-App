@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
@@ -120,7 +121,9 @@ class HomeController extends GetxController {
         attendanceStatus.value = status;
       }
     } catch (e) {
-      print('Error loading attendance status: $e');
+      if (kDebugMode) {
+        print('Error loading attendance status: $e');
+      }
       // If there's an error, start with fresh status
       attendanceStatus.value = AttendanceStatus();
     }
@@ -132,7 +135,9 @@ class HomeController extends GetxController {
       final jsonString = json.encode(attendanceStatus.value.toJson());
       await prefs.setString('attendance_status', jsonString);
     } catch (e) {
-      print('Error saving attendance status: $e');
+      if (kDebugMode) {
+        print('Error saving attendance status: $e');
+      }
     }
   }
 

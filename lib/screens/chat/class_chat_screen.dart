@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/chat/chat_controller.dart';
-import '../../models/chat_models.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_bar.dart';
 
@@ -43,7 +42,7 @@ class _ClassChatScreenState extends State<ClassChatScreen> {
                     margin: const EdgeInsets.symmetric(vertical: 6),
                     padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                      color: msg.isTeacher ? AppTheme.primaryBlue.withOpacity(0.15) : AppTheme.white,
+                      color: msg.isTeacher ? AppTheme.primaryBlue.withValues(alpha: 0.15 * 255) : AppTheme.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
@@ -96,7 +95,7 @@ class _ClassChatScreenState extends State<ClassChatScreen> {
                       hintText: 'Type your question or doubt...',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: AppTheme.primaryBlue.withOpacity(0.2)),
+                        borderSide: BorderSide(color: AppTheme.primaryBlue.withValues(alpha: 0.2 * 255)),
                       ),
                       filled: true,
                       fillColor: AppTheme.white,

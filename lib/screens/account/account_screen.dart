@@ -63,7 +63,7 @@ class AccountScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryBlue.withOpacity(0.3),
+            color: AppTheme.primaryBlue.withAlpha(30),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -83,7 +83,7 @@ class AccountScreen extends StatelessWidget {
                   height: 120,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: AppTheme.white.withOpacity(0.2),
+                    color: AppTheme.white.withValues(alpha: 0.2 * 255),
                     border: Border.all(
                       color: AppTheme.white,
                       width: 4,
@@ -124,7 +124,7 @@ class AccountScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withAlpha(40),
                           blurRadius: 8,
                           offset: const Offset(0, 2),
                         ),
@@ -166,7 +166,7 @@ class AccountScreen extends StatelessWidget {
           Text(
             profile.email,
             style: AppTheme.bodyMedium.copyWith(
-              color: AppTheme.white.withOpacity(0.9),
+              color: AppTheme.white.withValues(alpha: 0.9 * 255),
             ),
             textAlign: TextAlign.center,
           ),
@@ -199,7 +199,7 @@ class AccountScreen extends StatelessWidget {
     return Icon(
       Icons.person,
       size: 60,
-      color: AppTheme.white.withOpacity(0.8),
+      color: AppTheme.white.withValues(alpha: 0.8 * 255),
     );
   }
 
@@ -207,7 +207,7 @@ class AccountScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: AppTheme.white.withOpacity(0.2),
+        color: AppTheme.white.withValues(alpha: 0.2 * 255),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -241,7 +241,7 @@ class AccountScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryBlue.withOpacity(0.1),
+            color: AppTheme.primaryBlue.withValues(alpha: 0.1 * 255),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -276,7 +276,7 @@ class AccountScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: AppTheme.primaryBlue.withOpacity(0.1),
+              color: AppTheme.primaryBlue.withValues(alpha: 0.1 * 255),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(
@@ -321,7 +321,7 @@ class AccountScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryBlue.withOpacity(0.1),
+            color: AppTheme.primaryBlue.withValues(alpha: 0.1 * 255),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -369,7 +369,7 @@ class AccountScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.all(
-            color: color.withOpacity(0.2),
+            color: color.withValues(alpha: 0.2 * 255),
             width: 1,
           ),
           borderRadius: BorderRadius.circular(12),
@@ -392,7 +392,7 @@ class AccountScreen extends StatelessWidget {
             const Spacer(),
             Icon(
               Icons.arrow_forward_ios,
-              color: color.withOpacity(0.6),
+              color: color.withValues(alpha: 0.6 * 255),
               size: 16,
             ),
           ],

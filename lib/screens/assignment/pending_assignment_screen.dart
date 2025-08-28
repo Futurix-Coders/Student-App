@@ -48,7 +48,7 @@ class PendingAssignmentScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: AppTheme.lightBlue.withOpacity(0.15),
+                    color: AppTheme.lightBlue.withValues(alpha: 38),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
@@ -69,7 +69,7 @@ class PendingAssignmentScreen extends StatelessWidget {
                 ? Container(
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     decoration: BoxDecoration(
-                      color: AppTheme.lightBlue.withOpacity(0.2),
+                      color: AppTheme.lightBlue.withValues(alpha: 51),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text('Submitted', style: AppTheme.bodyMedium.copyWith(color: AppTheme.primaryBlue)),

@@ -29,13 +29,13 @@ class ClassroomDetailScreen extends StatelessWidget {
                     image: AssetImage(classroom.profilePic),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.45),
+                      Colors.black.withValues(alpha: 0.45 * 255),
                       BlendMode.darken,
                     ),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: AppTheme.primaryBlue.withOpacity(0.15),
+                      color: AppTheme.primaryBlue.withValues(alpha: 38),
                       blurRadius: 24,
                       offset: const Offset(0, 8),
                     ),
@@ -57,7 +57,7 @@ class ClassroomDetailScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         shadows: [
                           Shadow(
-                            color: Colors.black.withOpacity(0.3),
+                            color: Colors.black.withValues(alpha: 0.3 * 255),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),
@@ -73,7 +73,7 @@ class ClassroomDetailScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         shadows: [
                           Shadow(
-                            color: Colors.black.withOpacity(0.2),
+                            color: Colors.black.withValues(alpha: 0.2 * 255),
                             blurRadius: 6,
                             offset: const Offset(0, 1),
                           ),
@@ -136,7 +136,7 @@ class ClassroomDetailScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.1),
+              color: color.withValues(alpha: 10),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -148,7 +148,7 @@ class ClassroomDetailScreen extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: color.withOpacity(0.15),
+                color: color.withValues(alpha: 15),
                 shape: BoxShape.circle,
               ),
               padding: const EdgeInsets.all(12),

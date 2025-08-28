@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/fee/fees_controller.dart';
-import '../../models/fees_models.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_bar.dart';
 
@@ -48,7 +47,7 @@ class FeesScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: fee.isPaid ? AppTheme.primaryBlue.withOpacity(0.12) : Colors.redAccent.withOpacity(0.12),
+                      color: fee.isPaid ? AppTheme.primaryBlue.withValues(alpha: 0.12) : Colors.redAccent.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(

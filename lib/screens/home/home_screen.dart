@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryBlue.withOpacity(0.3),
+            color: AppTheme.primaryBlue.withAlpha(50),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                 width: 60,
                 height: 60,
                 decoration: BoxDecoration(
-                  color: AppTheme.white.withOpacity(0.2),
+                  color: AppTheme.white.withAlpha(50),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       'Welcome back,',
                       style: AppTheme.bodyLarge.copyWith(
-                        color: AppTheme.white.withOpacity(0.9),
+                        color: AppTheme.white.withAlpha(230),
                       ),
                     ),
                     Text(
@@ -140,7 +140,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: AppTheme.white.withOpacity(0.2),
+        color: AppTheme.white.withAlpha(50),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -188,7 +188,7 @@ class HomeScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryBlue.withOpacity(0.1),
+            color: AppTheme.primaryBlue.withAlpha(50),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -209,7 +209,7 @@ class HomeScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppTheme.primaryBlue.withOpacity(0.1),
+                  color: AppTheme.primaryBlue.withAlpha(50),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -325,7 +325,7 @@ class HomeScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Color(action['color']).withOpacity(0.1),
+              color: Color(action['color']).withAlpha(50),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),

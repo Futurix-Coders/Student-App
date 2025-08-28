@@ -79,12 +79,10 @@ class AppTheme {
         primaryContainer: lightBlue,
         secondary: lightBlue,
         surface: white,
-        background: lightGrey,
         error: errorRed,
         onPrimary: white,
         onSecondary: white,
         onSurface: primaryBlue,
-        onBackground: primaryBlue,
         onError: white,
       ),
 
@@ -169,7 +167,7 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: white,
         elevation: 4,
-        shadowColor: primaryBlue.withOpacity(0.1),
+        shadowColor: primaryBlue.withAlpha(50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),

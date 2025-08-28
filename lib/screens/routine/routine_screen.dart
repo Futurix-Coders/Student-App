@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import '../../controller/routine/routine_controller.dart';
-import '../../models/routine_models.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_bar.dart';
 
@@ -45,7 +44,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
       body: Obx(() => SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: DataTable(
-          headingRowColor: WidgetStateProperty.all(AppTheme.primaryBlue.withOpacity(0.08)),
+          headingRowColor: WidgetStateProperty.all(AppTheme.primaryBlue.withValues(alpha: 0.08)),
           columns: [
             DataColumn(label: Text('Day', style: AppTheme.heading3)),
             for (int i = 0; i < 6; i++)

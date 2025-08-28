@@ -40,11 +40,6 @@ class AuthController extends GetxController {
     'Media Science'
   ];
 
-  @override
-  void onInit() {
-    super.onInit();
-    // Initialize any required setup
-  }
 
   @override
   void onClose() {

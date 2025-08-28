@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../controller/attendance/attendance_controller.dart';
-import '../../models/attendance_models.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_bar.dart';
 
@@ -32,7 +31,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
                 BoxShadow(
-                  color: AppTheme.primaryBlue.withOpacity(0.08),
+                  color: AppTheme.primaryBlue.withValues(alpha: 0.08 * 255),
                   blurRadius: 16,
                   offset: const Offset(0, 6),
                 ),
@@ -52,7 +51,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               },
               calendarStyle: CalendarStyle(
                 todayDecoration: BoxDecoration(
-                  color: AppTheme.primaryBlue.withOpacity(0.15),
+                  color: AppTheme.primaryBlue.withValues(alpha: 0.15 * 255),
                   shape: BoxShape.circle,
                 ),
                 selectedDecoration: BoxDecoration(
@@ -71,7 +70,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 rightChevronIcon: Icon(Icons.chevron_right, color: AppTheme.primaryBlue),
                 headerPadding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
-                  color: AppTheme.lightBlue.withOpacity(0.12),
+                  color: AppTheme.lightBlue.withValues(alpha: 0.12 * 255),
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
@@ -110,7 +109,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: AppTheme.primaryBlue.withOpacity(0.08),
+                        color: AppTheme.primaryBlue.withValues(alpha: 0.08 * 255),
                         blurRadius: 12,
                         offset: const Offset(0, 4),
                       ),
@@ -130,7 +129,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: AppTheme.primaryBlue.withOpacity(0.08),
+                      color: AppTheme.primaryBlue.withValues(alpha: 0.08 * 255),
                       blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),

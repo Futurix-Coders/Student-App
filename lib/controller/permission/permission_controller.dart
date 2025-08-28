@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -27,7 +28,9 @@ class PermissionController extends GetxController {
       final notificationStatus = await Permission.notification.status;
       notificationPermissionGranted.value = notificationStatus.isGranted;
     } catch (e) {
-      print('Error checking permissions: $e');
+      if (kDebugMode) {
+        print('Error checking permissions: $e');
+      }
     } finally {
       isLoading.value = false;
     }

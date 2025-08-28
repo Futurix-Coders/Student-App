@@ -37,7 +37,7 @@ class SignupScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: AppTheme.primaryBlue.withOpacity(0.3),
+                            color: AppTheme.primaryBlue.withValues(alpha: 0.3),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),
@@ -151,7 +151,7 @@ class SignupScreen extends StatelessWidget {
                         
                         // Semester Dropdown
                         Obx(() => DropdownButtonFormField<String>(
-                          value: authController.selectedSemester.value,
+                          initialValue: authController.selectedSemester.value,
                           decoration: const InputDecoration(
                             labelText: 'Semester',
                             prefixIcon: Icon(Icons.school),
@@ -179,7 +179,7 @@ class SignupScreen extends StatelessWidget {
                         
                         // Department Dropdown
                         Obx(() => DropdownButtonFormField<String>(
-                          value: authController.selectedDepartment.value,
+                          initialValue: authController.selectedDepartment.value,
                           decoration: const InputDecoration(
                             labelText: 'Department',
                             prefixIcon: Icon(Icons.business),

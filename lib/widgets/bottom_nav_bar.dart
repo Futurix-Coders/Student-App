@@ -8,7 +8,7 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeController = Get.find<HomeController>();
+    final homeController = Get.put(HomeController());
 
     return Obx(() => BottomNavigationBar(
       currentIndex: homeController.currentIndex.value,

@@ -49,10 +49,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: 600,
                 height: 600,
                 decoration: BoxDecoration(
-                  color: AppTheme.white.withOpacity(0.1),
+                  color: AppTheme.white.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: AppTheme.white.withOpacity(0.3),
+                    color: AppTheme.white.withValues(alpha: 0.3),
                     width: 2,
                   ),
                 ),

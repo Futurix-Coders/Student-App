@@ -69,7 +69,7 @@ class _SubmitAssignmentScreenState extends State<SubmitAssignmentScreen> {
                 decoration: BoxDecoration(
                   color: AppTheme.white,
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: AppTheme.primaryBlue.withOpacity(0.2)),
+                  border: Border.all(color: AppTheme.primaryBlue.withValues(alpha: 0.2)),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +93,7 @@ class _SubmitAssignmentScreenState extends State<SubmitAssignmentScreen> {
                 fillColor: AppTheme.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: AppTheme.primaryBlue.withOpacity(0.2)),
+                  borderSide: BorderSide(color: AppTheme.primaryBlue.withValues(alpha: 0.2)),
                 ),
               ),
             ),

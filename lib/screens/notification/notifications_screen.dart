@@ -25,7 +25,9 @@ class NotificationsScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final notification = notifications[index];
             return Card(
-              color: notification.isRead ? AppTheme.white : AppTheme.lightBlue.withOpacity(0.2),
+              color: notification.isRead
+                  ? AppTheme.white
+                  : AppTheme.lightBlue.withValues(alpha: 0.2 * 255),
               margin: const EdgeInsets.only(bottom: 16),
               child: ListTile(
                 title: Text(notification.title, style: AppTheme.heading3),

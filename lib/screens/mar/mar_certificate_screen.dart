@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/mar/mar_controller.dart';
-import '../../models/mar_models.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_bar.dart';
 import 'dart:io';

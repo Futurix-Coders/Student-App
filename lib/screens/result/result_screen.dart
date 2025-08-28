@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/result/result_controller.dart';
-import '../../models/result_models.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_bar.dart';
 
@@ -36,7 +35,7 @@ class ResultScreen extends StatelessWidget {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: DataTable(
-                      headingRowColor: WidgetStateProperty.all(AppTheme.primaryBlue.withOpacity(0.08)),
+                      headingRowColor: WidgetStateProperty.all(AppTheme.primaryBlue.withValues(alpha: 0.08)),
                       columns: const [
                         DataColumn(label: Text('Subject')),
                         DataColumn(label: Text('CA1')),

@@ -84,7 +84,7 @@ class _AdvertisementCarouselState extends State<AdvertisementCarousel> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: AppTheme.primaryBlue.withOpacity(0.3),
+                  color: AppTheme.primaryBlue.withValues(alpha: 0.3),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -111,7 +111,7 @@ class _AdvertisementCarouselState extends State<AdvertisementCarousel> {
                         Text(
                           item['subtitle']!,
                           style: AppTheme.bodyMedium.copyWith(
-                            color: AppTheme.white.withOpacity(0.9),
+                            color: AppTheme.white.withValues(alpha: 0.9),
                           ),
                         ),
                       ],
@@ -122,7 +122,7 @@ class _AdvertisementCarouselState extends State<AdvertisementCarousel> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: AppTheme.white.withOpacity(0.2),
+                        color: AppTheme.white.withAlpha(50),
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
@@ -132,7 +132,7 @@ class _AdvertisementCarouselState extends State<AdvertisementCarousel> {
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
                               decoration: BoxDecoration(
-                                color: AppTheme.white.withOpacity(0.3),
+                                color: AppTheme.white.withAlpha(50),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Icon(
@@ -167,7 +167,7 @@ class _AdvertisementCarouselState extends State<AdvertisementCarousel> {
                 shape: BoxShape.circle,
                 color: _currentPage == index
                     ? AppTheme.primaryBlue
-                    : AppTheme.primaryBlue.withOpacity(0.3),
+                    : AppTheme.primaryBlue.withValues(alpha: 0.3),
               ),
             ),
           ),
