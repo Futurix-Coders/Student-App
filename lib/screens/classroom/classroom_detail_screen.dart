@@ -97,19 +97,10 @@ class ClassroomDetailScreen extends StatelessWidget {
                 children: [
                   _buildQuickActionBox(
                     icon: Icons.assignment_outlined,
-                    label: 'View Pending Assignments',
+                    label: 'View & Upload Pending Assignments',
                     color: AppTheme.primaryBlue,
                     onTap: () {
                       Get.toNamed('/pending-assignments');
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  _buildQuickActionBox(
-                    icon: Icons.upload_file,
-                    label: 'Upload Pending Assignments',
-                    color: AppTheme.lightBlue,
-                    onTap: () {
-                      // TODO: Navigate to upload assignments screen
                     },
                   ),
                   const SizedBox(height: 20),
@@ -118,7 +109,7 @@ class ClassroomDetailScreen extends StatelessWidget {
                     label: 'Enter Chat for Doubt Clearance',
                     color: AppTheme.primaryBlue,
                     onTap: () {
-                      // TODO: Navigate to chat screen
+                      Get.toNamed('/class-chat');
                     },
                   ),
                 ],
@@ -139,40 +130,39 @@ class ClassroomDetailScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 18),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: AppTheme.white,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.12),
-              blurRadius: 12,
-              offset: const Offset(0, 4),
+              color: color.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 5),
             ),
           ],
         ),
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               decoration: BoxDecoration(
-                color: color.withOpacity(0.18),
+                color: color.withOpacity(0.15),
                 shape: BoxShape.circle,
               ),
               padding: const EdgeInsets.all(12),
-              child: Icon(icon, color: color, size: 28),
+              child: Icon(icon, color: color, size: 32),
             ),
-            const SizedBox(width: 18),
-            Expanded(
-              child: Text(
-                label,
-                style: AppTheme.heading3.copyWith(
-                  color: color,
-                  fontWeight: FontWeight.w600,
-                ),
+            const SizedBox(height: 12),
+            Text(
+              label,
+              style: AppTheme.bodyMedium.copyWith(
+                fontWeight: FontWeight.w600,
+                color: AppTheme.primaryBlue,
               ),
+              textAlign: TextAlign.center,
             ),
-            const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.grey),
           ],
         ),
       ),

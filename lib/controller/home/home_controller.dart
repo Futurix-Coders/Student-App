@@ -174,7 +174,7 @@ class HomeController extends GetxController {
         Get.toNamed('/classroom');
         break;
       case 2: // Routine
-        Get.snackbar('Routine', 'Opening routine screen...');
+        Get.toNamed('/routine');
         break;
       case 3: // Account
         Get.toNamed('/account');

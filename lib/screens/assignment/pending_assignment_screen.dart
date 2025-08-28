@@ -77,7 +77,9 @@ class PendingAssignmentScreen extends StatelessWidget {
                 : SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () => controller.submitAssignment(assignment),
+                      onPressed: () {
+                        Get.toNamed('/submit-assignment', arguments: assignment);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppTheme.primaryBlue,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),

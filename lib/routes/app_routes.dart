@@ -2,6 +2,9 @@ import 'package:get/get.dart';
 import 'package:student_app/screens/classroom/classroom_screen.dart';
 import 'package:student_app/screens/classroom/classroom_detail_screen.dart';
 import 'package:student_app/screens/assignment/pending_assignment_screen.dart';
+import 'package:student_app/screens/assignment/submit_assignment_screen.dart';
+import 'package:student_app/screens/chat/class_chat_screen.dart';
+import 'package:student_app/screens/routine/routine_screen.dart';
 import '../screens/auth/splash_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/signup_screen.dart';
@@ -21,6 +24,9 @@ class AppRoutes {
   static const String classroom = '/classroom';
   static const String classroomDetail = '/classroom-detail';
   static const String pendingAssignments = '/pending-assignments';
+  static const String submitAssignment = '/submit-assignment';
+  static const String classChat = '/class-chat';
+  static const String routine = '/routine';
 
   static final routes = [
     GetPage(
@@ -75,5 +81,22 @@ class AppRoutes {
       page: () => const PendingAssignmentScreen(),
       transition: Transition.fadeIn,
     ),
+    GetPage(
+      name: submitAssignment,
+      page: () => SubmitAssignmentScreen(
+        assignment: Get.arguments,
+      ),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: classChat,
+      page: () => const ClassChatScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: routine,
+      page: () => const RoutineScreen(),
+      transition: Transition.fadeIn,
+    )
   ];
 }
