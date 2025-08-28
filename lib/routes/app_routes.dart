@@ -4,6 +4,7 @@ import 'package:student_app/screens/classroom/classroom_detail_screen.dart';
 import 'package:student_app/screens/assignment/pending_assignment_screen.dart';
 import 'package:student_app/screens/assignment/submit_assignment_screen.dart';
 import 'package:student_app/screens/chat/class_chat_screen.dart';
+import 'package:student_app/screens/fees/fees_screen.dart';
 import 'package:student_app/screens/routine/routine_screen.dart';
 import '../screens/auth/splash_screen.dart';
 import '../screens/auth/login_screen.dart';
@@ -33,6 +34,7 @@ class AppRoutes {
   static const String results = '/results';
   static const String marCertificates = '/mar-certificates';
   static const String attendanceRecord = '/attendance-record';
+  static const String fees = '/fees';
 
   static final routes = [
     GetPage(
@@ -117,6 +119,11 @@ class AppRoutes {
     GetPage(
       name: attendanceRecord,
       page: () => const AttendanceScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: fees,
+      page: () => const FeesScreen(), // Placeholder for Fees Screen
       transition: Transition.fadeIn,
     )
   ];

@@ -80,9 +80,9 @@ class AuthController extends GetxController {
           'phone': loginPhoneController.text,
           'name': 'Demo User'
         };
-        
-        // Navigate to location permission
-        Get.offAllNamed('/location-permission');
+
+        // Navigate to home
+        Get.offAllNamed('/home');
       } else {
         Get.snackbar(
           'Error',
@@ -124,8 +124,8 @@ class AuthController extends GetxController {
         colorText: Colors.white,
       );
       
-      // Navigate to login
-      Get.offAllNamed('/login');
+      // Navigate to location permission
+      Get.offAllNamed('/location-permission');
     } catch (e) {
       Get.snackbar(
         'Error',
@@ -137,6 +137,16 @@ class AuthController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+  }
+
+  // Called after location permission is granted
+  void onLocationPermissionGranted() {
+    Get.offAllNamed('/notification-permission');
+  }
+
+  // Called after notification permission is granted
+  void onNotificationPermissionGranted() {
+    Get.offAllNamed('/login');
   }
 
   // Logout method

@@ -161,4 +161,21 @@ class AccountController extends GetxController {
       isUpdatingProfilePicture.value = false;
     }
   }
+
+  void changeIndex(int index) {
+    switch (index) {
+      case 0:
+        Get.offAllNamed('/home');
+        break;
+      case 1:
+        Get.offAllNamed('/classroom');
+        break;
+      case 2:
+        Get.offAllNamed('/routine');
+        break;
+      case 3:
+        Get.offAllNamed('/account');
+        break;
+    }
+  }
 }

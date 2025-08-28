@@ -31,4 +31,21 @@ class ClassroomController extends GetxController {
     classrooms.refresh();
     Get.snackbar('Joined', 'You have joined ${classroom.name}');
   }
+
+  void changeIndex(int index) {
+    switch (index) {
+      case 0:
+        Get.offAllNamed('/home');
+        break;
+      case 1:
+        Get.offAllNamed('/classroom');
+        break;
+      case 2:
+        Get.offAllNamed('/routine');
+        break;
+      case 3:
+        Get.offAllNamed('/account');
+        break;
+    }
+  }
 }

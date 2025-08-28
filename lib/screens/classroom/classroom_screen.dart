@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../controller/classroom/classroom_controller.dart';
 import '../../models/classroom_models.dart';
 import '../../widgets/app_bar.dart';
+import '../../widgets/bottom_nav_bar.dart';
 import '../../theme/app_theme.dart';
 
 class ClassroomScreen extends StatelessWidget {
@@ -22,6 +23,7 @@ class ClassroomScreen extends StatelessWidget {
           return _buildClassroomCard(classroom, classroomController);
         },
       )),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 

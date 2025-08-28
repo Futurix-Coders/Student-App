@@ -164,20 +164,19 @@ class HomeController extends GetxController {
 
   void changeIndex(int index) {
     currentIndex.value = index;
-    
     // Handle navigation based on selected index
     switch (index) {
       case 0: // Home
-        // Already on home screen
+        Get.offAllNamed('/home');
         break;
-      case 1: // Assignments
-        Get.toNamed('/classroom');
+      case 1: // Classroom
+        Get.offAllNamed('/classroom');
         break;
       case 2: // Routine
-        Get.toNamed('/routine');
+        Get.offAllNamed('/routine');
         break;
       case 3: // Account
-        Get.toNamed('/account');
+        Get.offAllNamed('/account');
         break;
     }
   }
@@ -195,7 +194,7 @@ class HomeController extends GetxController {
         Get.snackbar('Routine', 'Opening class routine...');
         break;
       case 'fees':
-        Get.snackbar('Fees', 'Opening fee payment section...');
+        Get.toNamed('/fees');
         break;
       case 'results':
         Get.toNamed('/results');
