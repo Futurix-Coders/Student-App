@@ -25,29 +25,29 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.primaryBlue,
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              AppTheme.primaryBlue,
-              AppTheme.lightBlue,
+              const Color.fromARGB(255, 255, 255, 255),
+              const Color.fromARGB(255, 255, 255, 255),
             ],
           ),
         ),
         child: Center(
           child: Image.asset(
             'assets/images/splash.png',
-            width: 200,
-            height: 200,
+            width: 600,
+            height: 600,
             fit: BoxFit.contain,
             errorBuilder: (context, error, stackTrace) {
               // Fallback if image fails to load
               return Container(
-                width: 200,
-                height: 200,
+                width: 600,
+                height: 600,
                 decoration: BoxDecoration(
                   color: AppTheme.white.withOpacity(0.1),
                   shape: BoxShape.circle,
@@ -58,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 child: Icon(
                   Icons.image,
-                  size: 100,
+                  size: 1000,
                   color: AppTheme.white,
                 ),
               );
