@@ -13,6 +13,7 @@ import '../screens/permission/location_permission_screen.dart';
 import '../screens/permission/notification_permission_screen.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/account/account_screen.dart';
+import '../screens/account/update_account_screen.dart';
 import '../screens/result/result_screen.dart';
 import '../screens/mar/mar_certificate_screen.dart';
 import '../screens/attendance/attendance_screen.dart';
@@ -37,6 +38,7 @@ class AppRoutes {
   static const String attendanceRecord = '/attendance-record';
   static const String fees = '/fees';
   static const String notifications = '/notifications';
+  static const String updateAccount = '/update-account';
 
   static final routes = [
     GetPage(
@@ -131,6 +133,11 @@ class AppRoutes {
     GetPage(
       name: notifications,
       page: () => const NotificationsScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: updateAccount,
+      page: () => const UpdateAccountScreen(),
       transition: Transition.fadeIn,
     )
   ];

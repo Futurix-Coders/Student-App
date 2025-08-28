@@ -40,12 +40,7 @@ class AccountController extends GetxController {
   }
 
   void editProfile() {
-    // TODO: Navigate to edit profile screen
-    Get.snackbar(
-      'Edit Profile',
-      'Edit profile functionality will be implemented soon.',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    Get.toNamed('/update-account', arguments: userProfile.value);
   }
 
   void logout() {
