@@ -201,7 +201,7 @@ class HomeController extends GetxController {
         Get.snackbar('Fees', 'Opening fee payment section...');
         break;
       case 'results':
-        Get.snackbar('Results', 'Opening results section...');
+        Get.toNamed('/results');
         break;
       case 'classroom':
         Get.snackbar('Classroom', 'Opening classroom...');

@@ -12,6 +12,7 @@ import '../screens/permission/location_permission_screen.dart';
 import '../screens/permission/notification_permission_screen.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/account/account_screen.dart';
+import '../screens/result/result_screen.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
@@ -27,6 +28,7 @@ class AppRoutes {
   static const String submitAssignment = '/submit-assignment';
   static const String classChat = '/class-chat';
   static const String routine = '/routine';
+  static const String results = '/results';
 
   static final routes = [
     GetPage(
@@ -96,6 +98,11 @@ class AppRoutes {
     GetPage(
       name: routine,
       page: () => const RoutineScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: results,
+      page: () => const ResultScreen(),
       transition: Transition.fadeIn,
     )
   ];
