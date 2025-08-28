@@ -57,8 +57,8 @@ class ClassroomScreen extends StatelessWidget {
                   classroom.isJoined
                       ? ElevatedButton(
                           onPressed: () {
-                            // Enter classroom logic (demo)
-                            Get.snackbar('Classroom', 'Entering ${classroom.name}');
+                            // Route to classroom detail screen
+                            Get.toNamed('/classroom-detail', arguments: classroom);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppTheme.primaryBlue,

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:student_app/screens/classroom/classroom_screen.dart';
+import 'package:student_app/screens/classroom/classroom_detail_screen.dart';
+import 'package:student_app/screens/assignment/pending_assignment_screen.dart';
 import '../screens/auth/splash_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/signup_screen.dart';
@@ -17,6 +19,8 @@ class AppRoutes {
   static const String home = '/home';
   static const String account = '/account';
   static const String classroom = '/classroom';
+  static const String classroomDetail = '/classroom-detail';
+  static const String pendingAssignments = '/pending-assignments';
 
   static final routes = [
     GetPage(
@@ -57,6 +61,18 @@ class AppRoutes {
     GetPage(
       name: classroom,
       page: () => const ClassroomScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: classroomDetail,
+      page: () => ClassroomDetailScreen(
+        classroom: Get.arguments,
+      ),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: pendingAssignments,
+      page: () => const PendingAssignmentScreen(),
       transition: Transition.fadeIn,
     ),
   ];
