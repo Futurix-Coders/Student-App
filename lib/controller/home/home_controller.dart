@@ -97,6 +97,13 @@ class HomeController extends GetxController {
       'color': 0xFF4CAF50,
       'action': 'results',
     },
+    {
+      'title': 'Classroom',
+      'subtitle': 'Join Classroom',
+      'icon': '🏫',
+      'color': 0xFF4CAF50,
+      'action': 'classroom',
+    },
   ].obs;
 
   @override
@@ -215,6 +222,9 @@ class HomeController extends GetxController {
         break;
       case 'results':
         Get.snackbar('Results', 'Opening results section...');
+        break;
+      case 'classroom':
+        Get.snackbar('Classroom', 'Opening classroom...');
         break;
     }
   }

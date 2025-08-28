@@ -34,16 +34,17 @@ class HomeScreen extends StatelessWidget {
                   _buildWelcomeSection(homeController),
                   const SizedBox(height: 24),
                   
-                  // Advertisement Carousel
-                  _buildCarouselSection(),
-                  const SizedBox(height: 24),
-                  
                   // Attendance Check-in/out Section
                   _buildAttendanceSection(homeController),
                   const SizedBox(height: 24),
                   
                   // Quick Actions Section
                   _buildQuickActionsSection(homeController),
+                  const SizedBox(height: 24),
+                                    
+                  // Advertisement Carousel
+                  _buildCarouselSection(),
+                  const SizedBox(height: 24),
                 ],
               ),
             )),
