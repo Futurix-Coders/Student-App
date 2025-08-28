@@ -13,6 +13,8 @@ import '../screens/permission/notification_permission_screen.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/account/account_screen.dart';
 import '../screens/result/result_screen.dart';
+import '../screens/mar/mar_certificate_screen.dart';
+import '../screens/attendance/attendance_screen.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
@@ -29,6 +31,8 @@ class AppRoutes {
   static const String classChat = '/class-chat';
   static const String routine = '/routine';
   static const String results = '/results';
+  static const String marCertificates = '/mar-certificates';
+  static const String attendanceRecord = '/attendance-record';
 
   static final routes = [
     GetPage(
@@ -103,6 +107,16 @@ class AppRoutes {
     GetPage(
       name: results,
       page: () => const ResultScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: marCertificates,
+      page: () => const MarCertificateScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: attendanceRecord,
+      page: () => const AttendanceScreen(),
       transition: Transition.fadeIn,
     )
   ];

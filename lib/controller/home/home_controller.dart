@@ -63,11 +63,11 @@ class HomeController extends GetxController {
       'action': 'attendance_record',
     },
     {
-      'title': 'Routine',
-      'subtitle': 'View schedule',
+      'title': 'MAR Certificate',
+      'subtitle': 'View your MAR certificates',
       'icon': '📅',
       'color': 0xFFFF9800,
-      'action': 'routine',
+      'action': 'mar_certificate',
     },
     {
       'title': 'Fees',
@@ -188,11 +188,8 @@ class HomeController extends GetxController {
 
   void onQuickActionTap(String action) {
     switch (action) {
-      case 'attendance':
-        Get.snackbar('Attendance', 'Opening attendance check-in/out...');
-        break;
       case 'attendance_record':
-        Get.snackbar('Record', 'Opening attendance record...');
+        Get.toNamed('/attendance-record');
         break;
       case 'routine':
         Get.snackbar('Routine', 'Opening class routine...');
@@ -204,7 +201,10 @@ class HomeController extends GetxController {
         Get.toNamed('/results');
         break;
       case 'classroom':
-        Get.snackbar('Classroom', 'Opening classroom...');
+        Get.toNamed('/classroom');
+        break;
+      case 'mar_certificate':
+        Get.toNamed('/mar-certificates');
         break;
     }
   }
