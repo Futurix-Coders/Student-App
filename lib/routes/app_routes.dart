@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:student_app/screens/classroom/classroom_screen.dart';
 import '../screens/auth/splash_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/signup_screen.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
   static const String notificationPermission = '/notification-permission';
   static const String home = '/home';
   static const String account = '/account';
+  static const String classroom = '/classroom';
 
   static final routes = [
     GetPage(
@@ -50,6 +52,11 @@ class AppRoutes {
     GetPage(
       name: account,
       page: () => const AccountScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: classroom,
+      page: () => const ClassroomScreen(),
       transition: Transition.fadeIn,
     ),
   ];

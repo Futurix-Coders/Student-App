@@ -34,12 +34,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       actions: actions ?? [
-        IconButton(
-          icon: const Icon(Icons.notifications_outlined),
-          onPressed: () {
-            Get.snackbar('Notifications', 'Opening notifications...');
-          },
-        ),
+        if (title == 'Classroom')
+          IconButton(
+            icon: const Icon(Icons.group),
+            onPressed: () {
+              Get.snackbar('Classroom', 'Viewing all classrooms');
+            },
+          )
+        else
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined),
+            onPressed: () {
+              Get.snackbar('Notifications', 'Opening notifications...');
+            },
+          ),
       ],
     );
   }

@@ -49,13 +49,6 @@ class HomeController extends GetxController {
   // Quick actions data
   final List<Map<String, dynamic>> quickActions = [
     {
-      'title': 'Attendance',
-      'subtitle': 'Check in/out',
-      'icon': '📊',
-      'color': 0xFF4CAF50,
-      'action': 'attendance',
-    },
-    {
       'title': 'Assignments',
       'subtitle': 'View pending',
       'icon': '📝',
@@ -77,14 +70,7 @@ class HomeController extends GetxController {
       'action': 'routine',
     },
     {
-      'title': 'Clear Doubts',
-      'subtitle': 'Ask questions',
-      'icon': '❓',
-      'color': 0xFFE91E63,
-      'action': 'doubts',
-    },
-    {
-      'title': 'Pay Fees',
+      'title': 'Fees',
       'subtitle': 'View dues',
       'icon': '💰',
       'color': 0xFF607D8B,
@@ -185,7 +171,7 @@ class HomeController extends GetxController {
         // Already on home screen
         break;
       case 1: // Assignments
-        Get.snackbar('Assignments', 'Opening assignments screen...');
+        Get.toNamed('/classroom');
         break;
       case 2: // Routine
         Get.snackbar('Routine', 'Opening routine screen...');
@@ -205,17 +191,11 @@ class HomeController extends GetxController {
       case 'attendance':
         Get.snackbar('Attendance', 'Opening attendance check-in/out...');
         break;
-      case 'assignments':
-        Get.snackbar('Assignments', 'Opening pending assignments...');
-        break;
       case 'attendance_record':
         Get.snackbar('Record', 'Opening attendance record...');
         break;
       case 'routine':
         Get.snackbar('Routine', 'Opening class routine...');
-        break;
-      case 'doubts':
-        Get.snackbar('Doubts', 'Opening doubt clearing section...');
         break;
       case 'fees':
         Get.snackbar('Fees', 'Opening fee payment section...');
