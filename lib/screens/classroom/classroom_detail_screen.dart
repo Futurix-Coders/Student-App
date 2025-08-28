@@ -152,7 +152,7 @@ class ClassroomDetailScreen extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               padding: const EdgeInsets.all(12),
-              child: Icon(icon, color: color, size: 32),
+              child: Icon(icon, color: AppTheme.white, size: 32),
             ),
             const SizedBox(height: 12),
             Text(

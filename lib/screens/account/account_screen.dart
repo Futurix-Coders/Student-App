@@ -166,7 +166,7 @@ class AccountScreen extends StatelessWidget {
           Text(
             profile.email,
             style: AppTheme.bodyMedium.copyWith(
-              color: AppTheme.white.withValues(alpha: 0.9 * 255),
+              color: AppTheme.white,
             ),
             textAlign: TextAlign.center,
           ),
@@ -199,7 +199,7 @@ class AccountScreen extends StatelessWidget {
     return Icon(
       Icons.person,
       size: 60,
-      color: AppTheme.white.withValues(alpha: 0.8 * 255),
+      color: AppTheme.primaryBlue.withValues(alpha: 0.8 * 255),
     );
   }
 
@@ -222,7 +222,7 @@ class AccountScreen extends StatelessWidget {
           Text(
             '$label: $value',
             style: AppTheme.bodySmall.copyWith(
-              color: AppTheme.white,
+              color: AppTheme.primaryBlue,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -282,7 +282,7 @@ class AccountScreen extends StatelessWidget {
             child: Icon(
               icon,
               size: 20,
-              color: AppTheme.primaryBlue,
+              color: AppTheme.white,
             ),
           ),
           const SizedBox(width: 16),
