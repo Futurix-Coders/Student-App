@@ -19,10 +19,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        title,
-        style: AppTheme.heading3.copyWith(color: AppTheme.white),
-        textAlign: TextAlign.left,
+      title: Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          style: AppTheme.heading3.copyWith(color: AppTheme.white),
+        ),
       ),
       backgroundColor: AppTheme.primaryBlue,
       foregroundColor: AppTheme.white,
@@ -45,7 +47,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           IconButton(
             icon: const Icon(Icons.notifications_outlined),
             onPressed: () {
-              Get.snackbar('Notifications', 'Opening notifications...');
+              Get.toNamed('/notifications');
             },
           ),
       ],

@@ -16,6 +16,7 @@ import '../screens/account/account_screen.dart';
 import '../screens/result/result_screen.dart';
 import '../screens/mar/mar_certificate_screen.dart';
 import '../screens/attendance/attendance_screen.dart';
+import '../screens/notification/notifications_screen.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
@@ -35,6 +36,7 @@ class AppRoutes {
   static const String marCertificates = '/mar-certificates';
   static const String attendanceRecord = '/attendance-record';
   static const String fees = '/fees';
+  static const String notifications = '/notifications';
 
   static final routes = [
     GetPage(
@@ -124,6 +126,11 @@ class AppRoutes {
     GetPage(
       name: fees,
       page: () => const FeesScreen(), // Placeholder for Fees Screen
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: notifications,
+      page: () => const NotificationsScreen(),
       transition: Transition.fadeIn,
     )
   ];
